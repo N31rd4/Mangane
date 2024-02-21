@@ -2,8 +2,9 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import LandingGradient from 'soapbox/components/landing-gradient';
-import { useAppSelector } from 'soapbox/hooks';
+import { useAppDispatch, useAppSelector } from 'soapbox/hooks';
 import { isStandalone } from 'soapbox/utils/state';
+import { externalLogin } from 'soapbox/actions/external_auth';
 
 import AboutPage from '../about';
 import LandingPage from '../landing_page';
@@ -14,8 +15,9 @@ import Header from './components/header';
 
 const PublicLayout = () => {
   const standalone = useAppSelector((state) => isStandalone(state));
-
-  if (standalone) {
+  const dispatch = useAppDispatch();
+  if (true) {
+    dispatch(externalLogin('tuit.fr'))
     return <Redirect to='/login/external' />;
   }
 
