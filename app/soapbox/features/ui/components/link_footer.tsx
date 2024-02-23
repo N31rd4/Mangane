@@ -59,10 +59,10 @@ const LinkFooter: React.FC = (): JSX.Element => {
         ) : (
           <FormattedMessage
             id='getting_started.open_source_notice'
-            defaultMessage='{code_name} is open source software. You can contribute or report issues at {code_link} ({code_version}).'
+            defaultMessage='{code_name} est un logiciel open source. Vous pouvez contribuer au fork de ce serveur à {code_link} ({code_version}).'
             values={{
               code_name: sourceCode.displayName,
-              code_link: <Text theme='subtle'><a className='underline' href={sourceCode.url} rel='noopener' target='_blank'>{sourceCode.repository}</a></Text>,
+              code_link: <Text theme='subtle'><a className='underline' href='https://github.com/N31rd4/Mangane' rel='noopener' target='_blank'>N31rd4/Mangane</a></Text>,
               code_version: sourceCode.version,
             }}
           />
