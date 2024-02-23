@@ -271,37 +271,8 @@ const Status: React.FC<IStatus> = (props) => {
           })}
           data-id={status.id}
         >
-
-          <div className={classNames('flex items-center', { 'mb-3': status.reblog && typeof status.reblog === 'object' })}>
-            <div className='grow min-w-0'>
-              {
-                status.reblog && typeof status.reblog === 'object' && (
-                  <NavLink
-                    to={`/@${status.getIn(['account', 'acct'])}`}
-                    onClick={(event) => event.stopPropagation()}
-                    className='flex items-center text-gray-700 dark:text-gray-600 text-xs font-medium space-x-1 hover:underline'
-                  >
-                    <Icon src={require('@tabler/icons/repeat.svg')} className='text-green-600' />
-
-                    <HStack alignItems='center'>
-                      <FormattedMessage
-                        id='status.reblogged_by'
-                        defaultMessage='{name} reposted'
-                        values={{
-                          name: <bdi className='max-w-[100px] truncate pr-1'>
-                            <strong className='text-gray-800 dark:text-gray-200' dangerouslySetInnerHTML={{ __html: String(status.getIn(['account', 'display_name_html'])) }} />
-                          </bdi>,
-                        }}
-                      />
-                    </HStack>
-                  </NavLink>
-                )
-              }
-            </div>
-            <Icon aria-hidden src={privacyIcon} className='h-5 w-5 shrink-0 text-gray-400 dark:text-gray-600' />
-          </div>
-          <div className='mb-3'>
-            <AccountContainer
+        <div className='mb-3 flex justify-between'>
+          <AccountContainer
               key={String(actualStatus.getIn(['account', 'id']))}
               id={String(actualStatus.getIn(['account', 'id']))}
               timestamp={actualStatus.created_at}
@@ -311,6 +282,34 @@ const Status: React.FC<IStatus> = (props) => {
               showProfileHoverCard={hoverable}
               withLinkToProfile={hoverable}
             />
+            <div className={classNames('flex items-center', { 'mb-3': status.reblog && typeof status.reblog === 'object' })}>
+              <div className='grow min-w-0'>
+                {
+                  status.reblog && typeof status.reblog === 'object' && (
+                    <NavLink
+                      to={`/@${status.getIn(['account', 'acct'])}`}
+                      onClick={(event) => event.stopPropagation()}
+                      className='flex items-center text-gray-700 dark:text-gray-600 text-xs font-medium space-x-1 hover:underline'
+                    >
+                      <Icon src={require('@tabler/icons/repeat.svg')} className='text-green-600' />
+
+                      <HStack alignItems='center'>
+                        <FormattedMessage
+                          id='status.reblogged_by'
+                          defaultMessage='{name} reposted'
+                          values={{
+                            name: <bdi className='max-w-[100px] truncate pr-1'>
+                              <strong className='text-gray-800 dark:text-gray-200' dangerouslySetInnerHTML={{ __html: String(status.getIn(['account', 'display_name_html'])) }} />
+                            </bdi>,
+                          }}
+                        />
+                      </HStack>
+                    </NavLink>
+                  )
+                }
+              </div>
+              <Icon aria-hidden src={privacyIcon} className='h-5 w-5 shrink-0 text-gray-400 dark:text-gray-600' />
+            </div>
           </div>
 
           <div className='status__content-wrapper'>

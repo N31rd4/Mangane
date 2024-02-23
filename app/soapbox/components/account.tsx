@@ -164,7 +164,7 @@ const Account = ({
   const LinkEl: any = withLinkToProfile ? Link : 'div';
 
   return (
-    <div data-testid='account' className='shrink-0 group block w-full' ref={overflowRef}>
+    <div data-testid='account' className='shrink-0 group' ref={overflowRef}>
       <HStack alignItems={actionAlignment} justifyContent='between'>
         <HStack className='grow min-w-0' alignItems={withAccountNote ? 'top' : 'center'} space={3}>
           <ProfilePopper
