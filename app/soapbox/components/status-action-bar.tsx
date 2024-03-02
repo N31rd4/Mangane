@@ -590,10 +590,7 @@ const StatusActionBar: React.FC<IStatusActionBar> = ({
 
   return (
     <div
-      className={classNames('flex flex-row', {
-        'justify-between': space === 'expand',
-        'space-x-2': space === 'compact',
-      })}
+      className={classNames('flex flex-row justify-around')}
     >
       <StatusActionButton
         title={replyTitle}

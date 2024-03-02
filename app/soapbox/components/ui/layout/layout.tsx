@@ -30,8 +30,9 @@ const Sidebar: React.FC = ({ children }) => (
 const Main: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, className }) => (
   <main
     className={classNames({
-      'md:col-span-12 lg:col-span-6 xl:col-span-6 pb-36': true,
+      'md:col-span-12 lg:col-span-6 xl:col-span-6 pb-36 layout-border': true,
     }, className)}
+    style={{ marginTop: '-1rem' }}
   >
     {children}
   </main>

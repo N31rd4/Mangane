@@ -236,9 +236,6 @@ const StatusList: React.FC<IStatusList> = ({
       className={classNames('divide-y divide-solid divide-gray-200 dark:divide-slate-700', {
         'divide-none': divideType !== 'border',
       })}
-      itemClassName={classNames({
-        'pb-3': divideType !== 'border',
-      })}
       {...other}
     >
       {renderScrollableContent()}

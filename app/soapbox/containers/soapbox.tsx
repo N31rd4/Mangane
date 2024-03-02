@@ -268,9 +268,9 @@ const SoapboxHead: React.FC<ISoapboxHead> = ({ children }) => {
     <>
       <Helmet>
         <html lang={locale} className={classNames('h-full', { dark: darkMode })} />
-        <body className={bodyClass} />
+        <body className={bodyClass} style={{ backgroundColor: '#15202b' }} />
         {themeCss && <style id='theme' type='text/css'>{`:root{${themeCss}}`}</style>}
-        {darkMode && <style type='text/css'>{':root { color-scheme: dark; }'}</style>}
+        {darkMode && <style type='text/css'>{':root { color-scheme: dark; };body {background-color:#15202b}'}</style>}
         <meta name='theme-color' content={soapboxConfig.brandColor} />
       </Helmet>
 
